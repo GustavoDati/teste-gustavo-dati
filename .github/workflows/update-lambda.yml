@@ -8,9 +8,11 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
+    permissions:
+      id-token: write
+      contents: read
     steps:
-    - name: Checkout code
+    - name: Checkout repository
       uses: actions/checkout@v2
 
     - name: Set up Python
@@ -23,11 +25,13 @@ jobs:
         pip install boto3
         pip install awscli
 
+    - name: Configure AWS credentials via OIDC
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        role-to-assume: arn:aws:iam::123456789012:role/sua-role-oidc
+        aws-region: us-east-1
+
     - name: Deploy to AWS Lambda
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_REGION: 'us-east-1'  # Substitua pela sua região da AWS
       run: |
         chmod +x deploy_lambdas.sh
         ./deploy_lambdas.sh
