@@ -17,7 +17,7 @@ declare -A lambdas=(
 )
 
 # Configura a região da AWS, substitua pela sua região
-AWS_REGION="sua-região-aws"
+AWS_REGION="us-east-1"
 
 # Atualiza todas as funções Lambda
 for lambda_name in "${!lambdas[@]}"; do
