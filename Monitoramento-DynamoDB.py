@@ -5,8 +5,6 @@ import logging
 import json
 import urllib3
 
-#testesdoflow
-
 # Definição da classe SlackHandler
 class SlackHandler(logging.Handler):
     def __init__(self, slack_webhook_url):
