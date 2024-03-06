@@ -5,7 +5,7 @@ import logging
 import json
 import urllib3
 
-#Isso é loucura ta 
+#Isso é loucura ta aa
 
 # Definição da classe SlackHandler
 class SlackHandler(logging.Handler):
