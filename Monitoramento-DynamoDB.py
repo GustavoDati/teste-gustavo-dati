@@ -5,8 +5,6 @@ import logging
 import json
 import urllib3
 
-#Isso é loucura ta aa
-
 # Definição da classe SlackHandler
 class SlackHandler(logging.Handler):
     def __init__(self, slack_webhook_url):
@@ -39,9 +37,9 @@ logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
 # Instanciação e configuração do SlackHandler
-slack_webhook_url = 'https://hooks.slack.com/services/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'  # Use sua URL de webhook real
+slack_webhook_url = 'https://hooks.slack.com/services/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'
 slack_handler = SlackHandler(slack_webhook_url)
-slack_handler.setLevel(logging.INFO)  # Define o nível de log que você deseja enviar para o Slack
+slack_handler.setLevel(logging.INFO)
 logger.addHandler(slack_handler)
 
 def assume_role(account_id, region):
