@@ -26,9 +26,10 @@ jobs:
         pip install awscli
 
     - name: Configure AWS credentials via OIDC
-      uses: aws-actions/configure-aws-credentials@v1
+      uses: aws-actions/configure-aws-credentials@v1.7.0
       with:
         role-to-assume: arn:aws:iam::386715143968:role/monitoramento-role2
+        role-session-name: GitHub_to_AWS_via_FederatedOIDC
         aws-region: us-east-1
 
     - name: Deploy to AWS Lambda
