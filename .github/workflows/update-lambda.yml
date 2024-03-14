@@ -28,7 +28,7 @@ jobs:
     - name: Configure AWS credentials via OIDC
       uses: aws-actions/configure-aws-credentials@v1
       with:
-        role-to-assume: arn:aws:iam::386715143968:role/role-monitoramento
+        role-to-assume: arn:aws:iam::386715143968:role/monitoramento-role2
         aws-region: us-east-1
 
     - name: Deploy to AWS Lambda
